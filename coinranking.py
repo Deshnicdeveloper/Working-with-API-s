@@ -5,7 +5,7 @@ import requests
 
 endpoint = "https://api.coinranking.com/v2/coins"
 
-api_key = "coinranking1ae5fcea386f31f326eddbcf53bda30152471f21bfd9b113"
+api_key = "<key>"
 method = "GET"
 headers = {
     'x-access-token': api_key,
