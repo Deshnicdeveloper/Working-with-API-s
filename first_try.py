@@ -13,7 +13,7 @@ querystring = {
 }
 
 headers = {
-    "x-rapidapi-key": "6ad0248a75mshf9d81495887932ap17b859jsn4b4e9e15f052",
+    "x-rapidapi-key": "<key>",
     "x-rapidapi-host": "coinranking1.p.rapidapi.com"
 }
 
