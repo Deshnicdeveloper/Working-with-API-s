@@ -30,12 +30,12 @@ def jsearch_api(job,location):
     available_jobs = data['data']
 
     #let's number our results
-
+    count = 0
 
     #let's loop through the available jobs and print out the necessary results
     for jobs in available_jobs:
-        count = 0
-        count = count + 1
+
+        count += 1
         print(f'------------------ Result Number: {count} -------------------------------\n')
         # print(count)
         print(f'Job Tile : {jobs['job_title']}')
