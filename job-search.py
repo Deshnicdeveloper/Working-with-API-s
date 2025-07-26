@@ -7,33 +7,51 @@ import csv
 #function to handle the API
 
 def jsearch_api(job,location):
-    endpoint = ""
-    api_key = ""
+    endpoint = "https://jsearch.p.rapidapi.com/search"
+    api_key = "6ad0248a75mshf9d81495887932ap17b859jsn4b4e9e15f052"
     method = "Get"
     params = {
-
+        "query": job,
+        "page": "1",
+        "num_pages": "1",
+        "country": location,
+        "date_posted": "all"
     }
 
     headers = {
+        "x-rapidapi-key": api_key,
+        "x-rapidapi-host": "jsearch.p.rapidapi.com",
         'content-type': 'Application/JSON',
-
     }
     #now the response
     response = requests.request(method, endpoint, params=params, headers=headers)
     data = response.json()
+    # print(data['data'])
+    available_jobs = data['data']
 
-    available_jobs = data
+    #let's number our results
+
 
     #let's loop through the available jobs and print out the necessary results
     for jobs in available_jobs:
-        print(f'Job Tile : {jobs}')
-        print(f'Company Name: {jobs}')
-        print(f'job location: {jobs}')
-        print(f'Employment Type: {jobs}')
-        print(f'Job Description: {jobs}')
+        count = 0
+        count = count + 1
+        print(f'------------------ Result Number: {count} -------------------------------\n')
+        # print(count)
+        print(f'Job Tile : {jobs['job_title']}')
+        print(f'Company Name: {jobs['employer_name']}')
+        if jobs in available_jobs:
+            print(f'job location: {jobs['job_location']}')
+        print(f'Employment Type: {jobs['job_employment_type']}')
+        print(f'Job Description: {jobs['job_description']}')
         #check if there is an available link and print it out
         if jobs in available_jobs:
-            print(f'Apply Link: {jobs}')
+            print(f'Apply Link: {jobs['job_apply_link']}')
+
+        print("\n")
+
+
+
 
 
 def country():
@@ -69,4 +87,5 @@ def main():
     print("Hope you could find something :-)")
 
 
-country()
+main()
+# jsearch_api("python developer", 'us')
