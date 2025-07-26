@@ -8,7 +8,7 @@ import csv
 
 def jsearch_api(job,location):
     endpoint = "https://jsearch.p.rapidapi.com/search"
-    api_key = "6ad0248a75mshf9d81495887932ap17b859jsn4b4e9e15f052"
+    api_key = "<key>"
     method = "Get"
     params = {
         "query": job,
